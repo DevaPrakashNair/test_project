@@ -1,8 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:test_project/bloc/display_details.dart';
+import 'package:test_project/bloc/registration.dart';
 
 import 'package:test_project/ui/page3.dart';
+import 'package:test_project/ui/profile.dart';
 
 class Page2 extends StatefulWidget {
   const Page2({Key? key}) : super(key: key);
@@ -12,6 +17,13 @@ class Page2 extends StatefulWidget {
 }
 
 class _Page2State extends State<Page2> {
+  var fname=TextEditingController();
+  var lname=TextEditingController();
+  var phone=TextEditingController();
+  var hname=TextEditingController();
+  var place=TextEditingController();
+  var pin=TextEditingController();
+  var pass=TextEditingController();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,8 +33,13 @@ class _Page2State extends State<Page2> {
           backgroundColor: Colors.black,
           appBar: AppBar(
             actions: [
-              CircleAvatar(
-                backgroundImage: NetworkImage("https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Andrew_Garfield_by_Gage_Skidmore_%28cropped%29.jpg/330px-Andrew_Garfield_by_Gage_Skidmore_%28cropped%29.jpg")
+              InkWell(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Profile()));
+                },
+                child: CircleAvatar(
+                  backgroundImage: NetworkImage("https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Andrew_Garfield_by_Gage_Skidmore_%28cropped%29.jpg/330px-Andrew_Garfield_by_Gage_Skidmore_%28cropped%29.jpg")
+                ),
               )
             ],
             backgroundColor: Colors.black,
@@ -32,7 +49,6 @@ class _Page2State extends State<Page2> {
               tabs: [
                 Tab(child: Text("Programs"),),
                 Tab(child: Text("Booking"),),
-
               ],
 
             ),
@@ -140,6 +156,209 @@ class _Page2State extends State<Page2> {
             ],
           ),
           drawer: Drawer(
+            backgroundColor: Colors.black,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(0,100.0,0,0),
+              child: Column(
+                children: [
+                  Text("Firstname: ",style: TextStyle(color: Colors.white),),
+                  TextField(
+                    controller: fname,
+                    style: TextStyle(color: Colors.white),
+                    decoration: new InputDecoration(
+                      border: OutlineInputBorder(
+                        borderSide:
+                        const BorderSide(color: Colors.blueGrey, width: 3),
+                        //borderRadius: BorderRadius.circular(15),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:
+                        const BorderSide(color: Colors.blueGrey, width: 3),
+                        //borderRadius: BorderRadius.circular(15),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                        const BorderSide(color: Colors.blueGrey, width: 3),
+                        //borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+                  ),
+                  Text("Lastname: ",style: TextStyle(color: Colors.white),),
+                  TextField(
+                    controller: lname,
+                    style: TextStyle(color: Colors.white),
+                    decoration: new InputDecoration(
+                      border: OutlineInputBorder(
+                        borderSide:
+                        const BorderSide(color: Colors.blueGrey, width: 3),
+                        //borderRadius: BorderRadius.circular(15),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:
+                        const BorderSide(color: Colors.blueGrey, width: 3),
+                        //borderRadius: BorderRadius.circular(15),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                        const BorderSide(color: Colors.blueGrey, width: 3),
+                        //borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+                  ),
+                  Text("Phone: ",style: TextStyle(color: Colors.white),),
+                  TextField(
+                    controller: phone,
+                    style: TextStyle(color: Colors.white),
+                    decoration: new InputDecoration(
+                      border: OutlineInputBorder(
+                        borderSide:
+                        const BorderSide(color: Colors.blueGrey, width: 3),
+                        //borderRadius: BorderRadius.circular(15),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:
+                        const BorderSide(color: Colors.blueGrey, width: 3),
+                        //borderRadius: BorderRadius.circular(15),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                        const BorderSide(color: Colors.blueGrey, width: 3),
+                        //borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+                  ),
+                  Text("House name: ",style: TextStyle(color: Colors.white),),
+                  TextField(
+                    controller: hname,
+                    style: TextStyle(color: Colors.white),
+                    decoration: new InputDecoration(
+                      border: OutlineInputBorder(
+                        borderSide:
+                        const BorderSide(color: Colors.blueGrey, width: 3),
+                        //borderRadius: BorderRadius.circular(15),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:
+                        const BorderSide(color: Colors.blueGrey, width: 3),
+                        //borderRadius: BorderRadius.circular(15),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                        const BorderSide(color: Colors.blueGrey, width: 3),
+                        //borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+                  ),
+                  Text("Place: ",style: TextStyle(color: Colors.white),),
+                  TextField(
+                    controller: place,
+                    style: TextStyle(color: Colors.white),
+                    decoration: new InputDecoration(
+                      border: OutlineInputBorder(
+                        borderSide:
+                        const BorderSide(color: Colors.blueGrey, width: 3),
+                        //borderRadius: BorderRadius.circular(15),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:
+                        const BorderSide(color: Colors.blueGrey, width: 3),
+                        //borderRadius: BorderRadius.circular(15),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                        const BorderSide(color: Colors.blueGrey, width: 3),
+                        //borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+                  ),
+                  Text("Pincode: ",style: TextStyle(color: Colors.white),),
+                  TextField(
+                    controller: pin,
+                    style: TextStyle(color: Colors.white),
+                    decoration: new InputDecoration(
+                      border: OutlineInputBorder(
+                        borderSide:
+                        const BorderSide(color: Colors.blueGrey, width: 3),
+                        //borderRadius: BorderRadius.circular(15),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:
+                        const BorderSide(color: Colors.blueGrey, width: 3),
+                        //borderRadius: BorderRadius.circular(15),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                        const BorderSide(color: Colors.blueGrey, width: 3),
+                        //borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+                  ),
+                  Text("Password: ",style: TextStyle(color: Colors.white),),
+                  TextField(
+                    controller: pass,
+                    style: TextStyle(color: Colors.white),
+                    decoration: new InputDecoration(
+                      border: OutlineInputBorder(
+                        borderSide:
+                        const BorderSide(color: Colors.blueGrey, width: 3),
+                        //borderRadius: BorderRadius.circular(15),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:
+                        const BorderSide(color: Colors.blueGrey, width: 3),
+                        //borderRadius: BorderRadius.circular(15),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                        const BorderSide(color: Colors.blueGrey, width: 3),
+                        //borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+                  ),
+                  MaterialButton(
+                    onPressed: () {
+                      BlocProvider.of<RegBloc>(context).add(CheckOTP(
+                        fname: fname.text,
+                        lname:lname.text,
+                        phone: phone.text,
+                        hname: hname.text,
+                        place: place.text,
+                        pin: pin.text,
+                        password: pass.text
+                      ));
+                      //  Navigator.push(context, MaterialPageRoute(builder: (context)=>Page2()));
+                    },
+                    color: Colors.green,
+                    height: 50,
+                    minWidth: MediaQuery.of(context).size.width,
+                    child: BlocConsumer<RegBloc, RegState>(
+                      builder: (context, state) {
+                        if (state is CheckingOtp) {
+                          return Container(
+                            height: 22,
+                            child: CircularProgressIndicator(),
+                          );
+                        } else {
+                          return Text(
+                            "Log in",
+                            style: TextStyle(fontSize: 14),
+                          );
+                        }
+                      },
+                      listener: (context, state) {
+                        if (state is OtpChecked) {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Page2()));
+                        } else if (state is OtpError) {
+                          Fluttertoast.showToast(
+                            msg: state.error,
+                          );
+                        }
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
       ),

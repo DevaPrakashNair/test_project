@@ -13,8 +13,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<CheckOTP>(_checkOtp);
   }
 
-
-
   Future<FutureOr<void>> _checkOtp(
       CheckOTP event, Emitter<AuthState> emit) async {
     emit(CheckingOtp());

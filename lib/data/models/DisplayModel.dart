@@ -71,5 +71,4 @@ class Data {
     map['__v'] = v;
     return map;
   }
-
 }
