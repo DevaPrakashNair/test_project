@@ -15,7 +15,7 @@ class _ProfileState extends State<Profile> {
   @override
   void initState(){
     super.initState();
-    BlocProvider.of<DisBloc>(context).add(CheckDisplay(token: ""));
+    BlocProvider.of<DisBloc>(context).add(CheckDisplay());
   }
   @override
   Widget build(BuildContext context) {
@@ -29,10 +29,9 @@ class _ProfileState extends State<Profile> {
                     padding: const EdgeInsets.fromLTRB(100, 100, 100, 100),
                     child: Column(
                       children: [
-                        Text(""),
-                        // Text(),
-                        // Text(),
-                        // Text()
+                        Text(state.displayModel!.data!.firstName!),
+                        Text(state.displayModel!.data!.lastName!),
+                        Text(state.displayModel!.data!.mobileNumber)
                       ],
                     )
                 );

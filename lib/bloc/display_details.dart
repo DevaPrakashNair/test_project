@@ -38,8 +38,7 @@ class DisEvent extends Equatable {
 }
 
 class CheckDisplay extends DisEvent {
-  final String token;
-  CheckDisplay({required this.token});
+
 }
 
 
