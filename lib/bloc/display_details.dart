@@ -6,7 +6,6 @@ import 'package:test_project/data/models/DisplayModel.dart';
 import 'package:test_project/data/repository.dart';
 
 
-import 'package:test_project/helper/sharedprefrences.dart';
 
 class DisBloc extends Bloc<DisEvent, DisState> {
   DisBloc() : super(DisState()) {
@@ -24,7 +23,6 @@ class DisBloc extends Bloc<DisEvent, DisState> {
     dismodel =
     await Repository().dispay(url: '/user/profile', data: data);
     if (dismodel.status == true) {
-      // await TempStorage.addToken(dismodel.token.toString());
       emit(DisplayChecked(displayModel: dismodel));
     } else {
       emit(DisplayError(error: dismodel.msg.toString()));
@@ -38,11 +36,8 @@ class DisEvent extends Equatable {
 }
 
 class CheckDisplay extends DisEvent {
-
 }
 
-
-//states
 
 class DisState extends Equatable {
   @override
@@ -52,7 +47,6 @@ class DisState extends Equatable {
 class CheckingDisplay extends DisState {}
 class DisplayChecked extends DisState {
   final DislayModel? displayModel;
-
   DisplayChecked({this.displayModel});
 }
 

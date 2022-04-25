@@ -26,12 +26,14 @@ class _ProfileState extends State<Profile> {
             builder: (context, state) {
               if(state is DisplayChecked) {
                 return Padding(
-                    padding: const EdgeInsets.fromLTRB(100, 100, 100, 100),
+                    padding: const EdgeInsets.fromLTRB(100, 100, 10, 100),
                     child: Column(
                       children: [
-                        Text(state.displayModel!.data!.firstName!),
-                        Text(state.displayModel!.data!.lastName!),
-                        Text(state.displayModel!.data!.mobileNumber)
+                        Text("First name: "+state.displayModel!.data!.firstName!),
+                        Text("Second name: "+state.displayModel!.data!.lastName!),
+                        Text("Mobile number: "+state.displayModel!.data!.mobileNumber.toString()),
+                        Text("House name: "+state.displayModel!.data!.houseName!),
+                        Text("Place: "+state.displayModel!.data!.place!)
                       ],
                     )
                 );
