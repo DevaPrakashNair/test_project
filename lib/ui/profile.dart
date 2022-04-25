@@ -37,6 +37,9 @@ class _ProfileState extends State<Profile> {
                     )
                 );
               }
+              else{
+                return Text("Error");
+              }
             }),
           ),
       );
