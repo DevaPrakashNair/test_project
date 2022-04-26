@@ -8,6 +8,7 @@ import 'package:test_project/bloc/registration.dart';
 
 import 'package:test_project/ui/page3.dart';
 import 'package:test_project/ui/profile.dart';
+import 'package:test_project/ui/profile_all.dart';
 
 class Page2 extends StatefulWidget {
   const Page2({Key? key}) : super(key: key);
@@ -151,7 +152,15 @@ class _Page2State extends State<Page2> {
                 ),
               ),
               Column(
-                children: [],
+                children: [
+                  MaterialButton(onPressed: ()=>{
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Profile_All())),
+                  },
+                    color: Colors.green,
+
+                  )
+
+                ],
               )
             ],
           ),

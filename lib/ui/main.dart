@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_project/bloc/display_details.dart';
 import 'package:test_project/bloc/firstbloc.dart';
+import 'package:test_project/bloc/getAllUser.dart';
 import 'package:test_project/bloc/registration.dart';
 import 'package:test_project/ui/page1.dart';
 
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<AuthBloc>(create: (context) => AuthBloc()),
         BlocProvider<RegBloc>(create: (context)=>RegBloc()),
-        BlocProvider<DisBloc>(create: (context)=>DisBloc())
+        BlocProvider<DisBloc>(create: (context)=>DisBloc()),
+        BlocProvider<AllBloc>(create: (context)=>AllBloc())
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

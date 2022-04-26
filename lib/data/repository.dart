@@ -1,6 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:test_project/data/models/DisplayModel.dart';
+import 'package:test_project/data/models/Display_allModel.dart';
 import 'package:test_project/data/models/LoginModel.dart';
 import 'package:test_project/data/models/RegModel.dart';
 import 'package:test_project/data/webclient.dart';
@@ -46,5 +47,18 @@ class Repository{
     final dynamic response = await WebClient.post(url, data);
     final DislayModel disModel = DislayModel.fromJson(response);
     return disModel;
+  }
+  Future<DisplayAllModel>   display_all({required String url, dynamic data}) async {
+    var connectivityResult = await (Connectivity().checkConnectivity());
+    if (connectivityResult == ConnectivityResult.none) {
+      Fluttertoast.showToast(
+        msg: "No internet connection",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+      );
+    }
+    final dynamic response = await WebClient.get(url);
+    final DisplayAllModel dis_allModel = DisplayAllModel.fromJson(response);
+    return dis_allModel;
   }
 }
