@@ -15,12 +15,10 @@ class AllBloc extends Bloc<AllEvent, AllState> {
       CheckDisplay event, Emitter<AllState> emit) async {
     emit(CheckingDisplay());
     DisplayAllModel dis_allmodel;
-    Map data = {
 
-    };
 
     dis_allmodel =
-    await Repository().display_all(url: '/user/all/user', data: data);
+    await Repository().display_all(url: '/view/all/user');
     if (dis_allmodel.status == true) {
       emit(DisplayChecked(display_allModel: dis_allmodel));
     } else {

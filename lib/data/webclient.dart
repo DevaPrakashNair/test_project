@@ -46,6 +46,7 @@ print("sss");
         headers: {"Content-Type": "application/json", "token": token ?? ""});
 
     print("token - " + token.toString() + " ||");
+    print(response.statusCode);
     if (response.statusCode == 200) {
       print(response.body);
       return jsonDecode(response.body);

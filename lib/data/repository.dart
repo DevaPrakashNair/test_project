@@ -48,7 +48,7 @@ class Repository{
     final DislayModel disModel = DislayModel.fromJson(response);
     return disModel;
   }
-  Future<DisplayAllModel>   display_all({required String url, dynamic data}) async {
+  Future<DisplayAllModel>   display_all({required String url}) async {
     var connectivityResult = await (Connectivity().checkConnectivity());
     if (connectivityResult == ConnectivityResult.none) {
       Fluttertoast.showToast(
