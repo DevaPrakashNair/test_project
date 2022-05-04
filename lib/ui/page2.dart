@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:test_project/bloc/display_details.dart';
 import 'package:test_project/bloc/registration.dart';
+import 'package:test_project/ui/edit.dart';
 
 import 'package:test_project/ui/page3.dart';
 import 'package:test_project/ui/profile.dart';
@@ -155,6 +156,12 @@ class _Page2State extends State<Page2> {
                 children: [
                   MaterialButton(onPressed: ()=>{
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>Profile_All())),
+                  },
+                    color: Colors.green,
+
+                  ),
+                  MaterialButton(onPressed: ()=>{
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Edit())),
                   },
                     color: Colors.green,
 

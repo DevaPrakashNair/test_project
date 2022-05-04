@@ -46,22 +46,3 @@ class _ProfileState extends State<Profile> {
       );
   }
 }
-
-
-// BlocProvider.of<DisBloc>(context).add(CheckDisplay(token: ''
-// ));
-// //  Navigator.push(context, MaterialPageRoute(builder: (context)=>Page2()));
-// },
-// child: BlocConsumer<DisBloc, DisState>(
-// builder: (context, state) {
-// if (state is CheckingDisplay) {
-// return Container(
-// height: 22,
-// child: CircularProgressIndicator(),
-// );
-// } else {
-// return Text("");
-// }
-// },
-// listener: (context, state) {
-// },

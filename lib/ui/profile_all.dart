@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_project/bloc/getAllUser.dart';
+import 'package:test_project/ui/detail_pge.dart';
 
 class Profile_All extends StatefulWidget {
   const Profile_All({Key? key}) : super(key: key);
@@ -39,11 +40,14 @@ class _Profile_AllState extends State<Profile_All> {
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
                               children: [
-                                Column(
-                                  crossAxisAlignment:CrossAxisAlignment.start,
-                                  children: [
-                                    Text(state.display_allModel!.data![index].place!)
-                                  ],
+                                InkWell(
+
+                                  child: Column(
+                                    crossAxisAlignment:CrossAxisAlignment.start,
+                                    children: [
+                                      Text(state.display_allModel!.data![index].place!)
+                                    ],
+                                  ),
                                 )
                               ],
                             ),

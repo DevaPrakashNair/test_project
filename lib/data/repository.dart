@@ -61,4 +61,17 @@ class Repository{
     final DisplayAllModel dis_allModel = DisplayAllModel.fromJson(response);
     return dis_allModel;
   }
+  Future<DislayModel> edit({required String url, dynamic data}) async {
+    var connectivityResult = await (Connectivity().checkConnectivity());
+    if (connectivityResult == ConnectivityResult.none) {
+      Fluttertoast.showToast(
+        msg: "No internet connection",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+      );
+    }
+    final dynamic response = await WebClient.post(url, data);
+    final DislayModel editModel= DislayModel.fromJson(response);
+    return editModel;
+  }
 }
